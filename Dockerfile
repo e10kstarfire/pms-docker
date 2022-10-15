@@ -38,6 +38,12 @@ RUN \
     curl -J -L -o /tmp/intel-opencl.deb https://github.com/intel/compute-runtime/releases/download/${INTEL_NEO_VERSION}/intel-opencl_${INTEL_NEO_VERSION}_amd64.deb && \
     apt install -y /tmp/intel-opencl.deb && \
     \
+# Use Hauppauge PPA
+    add-apt-repository ppa:b-rad/kernel+mediatree+hauppauge && \
+    apt-get update && \
+    apt-get install linux-mediatree && \
+    apt-get install linux-firmware-hauppauge && \
+    \
 # Add user
     useradd -U -d /config -s /bin/false plex && \
     usermod -G users plex && \
